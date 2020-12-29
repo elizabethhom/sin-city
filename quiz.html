@@ -82,6 +82,7 @@
 
  					if (felix > max) {
  						result = 2;
+ 						max = felix;
  					}
 
  					if (lorelei > max) {
@@ -91,7 +92,6 @@
  					if (result == 1) soren_result();
  					else if (result == 2) felix_result();
  					else lorelei_result();
-
  				})
 
  			});
@@ -373,7 +373,6 @@
  				document.getElementById("choices").innerHTML = "";
  				document.getElementById("result_text").innerHTML = lorelei_text;
  			}
-
  		</script>
 	</body>
 </html>
