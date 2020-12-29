@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>SIN CITY</title>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="style.css">
+		<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=League Script' rel='stylesheet'>
+
+		<style>
+			h1 { color: white; margin: 0; }
+			h3 { color: #DCDCDC; margin: 0; }
+			h4 { color: white; text-align: center; }
+			h6 { margin: 0; }
+		</style>
+	</head>
+
+	<body>
+		 <div class="home-image">
+		 	<h4 id="title">sin city</h4>
+	        <ul class="nav-content">
+	            <li class="nav-li"><a href="index.html">HOME</a></li>&nbsp;&nbsp;•&nbsp;&nbsp;
+	            <li class="nav-li"><a href="quiz.html">QUIZ</a></li>&nbsp;&nbsp;•&nbsp;&nbsp;
+	            <li class="nav-li"><a href="aces.html">ACES</a></li>&nbsp;&nbsp;•&nbsp;&nbsp;
+	            <li class="nav-li"><a href="about.html">ABOUT</a></li>
+	        </ul>
+
+ 			<div class="home-text">
+ 				<h1 id="question_num">Q U I Z</h1>
+ 				<div id="result_image"></div>
+ 				<h3 id="question">which ace are you?</h3>
+
+ 				<h5 id="choices"></h5> 
+ 				<h6 id="result_text"></h6>
+
+ 				<button id="start_button" type="button" class="button" onclick="start();">Start</button>
+
+ 				<button id="button1" type="button" class="button">Choice 1</button>
+ 				<button id="button2" type="button" class="button">Choice 2</button>
+ 				<button id="button3" type="button" class="button">Choice 3</button>
+ 				<button id="results" type="button" class="button">Show me my results!</button>
+
+ 			</div>
+ 		</div>
+
+ 		<script>
+
+ 			$(document).ready(function() {
+ 				var soren = 0;
+ 				var lorelei = 0;
+ 				var felix = 0;
+
+ 				$("#button1").hide();
+ 				$("#button2").hide();
+ 				$("#button3").hide();
+ 				$("#results").hide();
+
+ 				$("#start_button").click(function() {
+ 					$("#start_button").hide();
+ 					$("#button1").show();
+ 					$("#button2").show();
+ 					$("#button3").show();
+ 				})
+
+ 				$("#button1").click(function() {
+ 					soren += 1;
+ 				})
+
+ 				$("#button2").click(function() {
+ 					felix += 1;
+ 				})
+
+ 				$("#button3").click(function() {
+ 					lorelei += 1;
+ 				})
+
+ 				$("#results").click(function() {
+
+ 					var max = soren;
+ 					result = 1;	// default max is soren
+
+ 					if (felix > max) {
+ 						result = 2;
+ 					}
+
+ 					if (lorelei > max) {
+ 						result = 3;
+ 					}
+
+ 					if (result == 1) soren_result();
+ 					else if (result == 2) felix_result();
+ 					else lorelei_result();
+
+ 				})
+
+ 			});
+
+ 			function start() {
+ 				var q1 = "What is your go-to Denny's order?";
+ 				var first = "1. Smiley Faced Pancakes";
+ 				var second = "2. I don't know, syrup?";
+ 				var third = "3. Anything, as long as it comes with a milkshake";
+
+ 				document.getElementById("question_num").innerHTML = "Q1:";
+ 				document.getElementById("question").innerHTML = q1;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q2();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q2();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q2();
+ 				}
+
+ 			}
+
+ 			function q2() {
+ 				var q2 = "Which drink do you get at the bar?";
+ 				var first = "1. Shirley Temple";
+ 				var second = "2. Long Island Iced Tea";
+ 				var third = "3. Tequila Shot, No Chaser";
+
+  				document.getElementById("question_num").innerHTML = "Q2:";
+ 				document.getElementById("question").innerHTML = q2;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q3();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q3();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q3();
+ 				}
+ 			}
+
+  			function q3() {
+ 				var q3 = "How many Instagram followers would you have?";
+ 				var first = "1. 235";
+ 				var second = "2. 24.4k+";
+ 				var third = "3. 6.3k";
+
+  				document.getElementById("question_num").innerHTML = "Q3:";
+ 				document.getElementById("question").innerHTML = q3;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q4();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q4();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q4();
+ 				}
+ 			}
+
+ 			function q4() {
+ 				var q4 = "Choose a flavor profile.";
+ 				var first = "1. Sour";
+ 				var second = "2. Sweet";
+ 				var third = "3. Spicy";
+
+  				document.getElementById("question_num").innerHTML = "Q4:";
+ 				document.getElementById("question").innerHTML = q4;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q5();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q5();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q5();
+ 				}
+ 			}
+
+ 			function q5() {
+ 				var q5 = "Choose one.";
+ 				var first = "1. Moon";
+ 				var second = "2. Sun";
+ 				var third = "3. Stars";
+
+  				document.getElementById("question_num").innerHTML = "Q5:";
+ 				document.getElementById("question").innerHTML = q5;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q6();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q6();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q6();
+ 				}
+ 			}
+
+ 			function q6() {
+ 				var q6 = "Who would you main in smash?";
+ 				var first = "1. Marth";
+ 				var second = "2. Jigglypuff";
+ 				var third = "3. Samus";
+
+  				document.getElementById("question_num").innerHTML = "Q6:";
+ 				document.getElementById("question").innerHTML = q6;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q7();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q7();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q7();
+ 				}
+ 			}
+
+ 			function q7() {
+ 				var q7 = "Which mythical creature do you identify with most?";
+ 				var first = "1. Dragon";
+ 				var second = "2. Fairy";
+ 				var third = "3. Phoenix";
+
+  				document.getElementById("question_num").innerHTML = "Q7:";
+ 				document.getElementById("question").innerHTML = q7;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q8();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q8();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q8();
+ 				}
+ 			}
+
+ 			function q8() {
+ 				var q8 = "Choose one.";
+ 				var first = "1. Duty";
+ 				var second = "2. Loyalty";
+ 				var third = "3. Sacrifice";
+
+  				document.getElementById("question_num").innerHTML = "Q8:";
+ 				document.getElementById("question").innerHTML = q8;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q9();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q9();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q9();
+ 				}
+ 			}
+
+ 			function q9() {
+ 				var q9 = "How do you feel about pineapple on pizza?";
+ 				var first = "1. It's aight. Just decide already";
+ 				var second = "2. It's pretty good!";
+ 				var third = "3. God, I'd rather eat coal";
+
+  				document.getElementById("question_num").innerHTML = "Q9:";
+ 				document.getElementById("question").innerHTML = q9;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					q10();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					q10();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					q10();
+ 				}
+ 			}
+
+ 			function q10() {
+ 				var q10 = "Choose a flavor profile.";
+ 				var first = "1. Sour";
+ 				var second = "2. Sweet";
+ 				var third = "3. Spicy";
+
+  				document.getElementById("question_num").innerHTML = "Q10:";
+ 				document.getElementById("question").innerHTML = q10;
+ 				document.getElementById("choices").innerHTML = first + "<br>" + second + "<br>" + third;
+
+ 				document.getElementById("button1").onclick = function() {
+ 					show_results();
+ 				}
+ 				document.getElementById("button2").onclick = function() {
+ 					show_results();
+ 				}
+ 				document.getElementById("button3").onclick = function() {
+ 					show_results();
+ 				}
+ 			}
+
+ 			function show_results() {
+ 				$("#button1").hide();
+ 				$("#button2").hide();
+ 				$("#button3").hide();
+ 				document.getElementById("question_num").innerHTML = "SIN CITY QUIZ:";
+ 				document.getElementById("question").innerHTML = "Find out which Ace you are!"
+ 				document.getElementById("choices").innerHTML = "";
+ 				$("#results").show();
+ 			}
+
+ 			function soren_result() {
+ 				$("#results").hide();
+ 				var soren_text = "Soren Aquino: the ace of spades. For a guy who has an excellent poker face, it's surprising that the only game he plays is blackjack. Some say it's because he's a card counting aficionado, but hey––nothing's illegal if you never get caught."
+ 				var result = "You are Soren!";
+
+				var img = document.createElement("img");
+				img.src = "soren.jpg";
+				img.style.width = "200px";
+				img.style.border = "5px solid white";
+
+				var src = document.getElementById("result_image");
+				src.appendChild(img);
+
+ 				document.getElementById("question_num").innerHTML = "";
+ 				document.getElementById("question").innerHTML = result + "<br>";
+ 				document.getElementById("choices").innerHTML = "";
+ 				document.getElementById("result_text").innerHTML = soren_text;
+ 			}
+
+ 			function felix_result() {
+ 				$("#results").hide();
+ 				var felix_text = "Felix Yoon: the ace of hearts. No one's quite sure what he has going for him besides dumb luck (emphasis on the dumb)––but his impressive slot machine winnings are proof enough of his membership within the Aces.";
+ 				var result = "You are Felix!";
+
+				var img = document.createElement("img");
+				img.src = "felix.jpg";
+				img.style.width = "200px";
+				img.style.border = "5px solid white";
+
+				var src = document.getElementById("result_image");
+				src.appendChild(img);
+
+ 				document.getElementById("question_num").innerHTML = "";
+ 				document.getElementById("question").innerHTML = result + "<br>";
+ 				document.getElementById("choices").innerHTML = "";
+ 				document.getElementById("result_text").innerHTML = felix_text;
+ 			}
+
+ 			function lorelei_result() {
+ 				$("#results").hide();
+ 				var lorelei_text = "Lorelei Mistry: the ace of clubs. With gambling habits as explosive as the C-4s she 'accidentally' gets her hands on, the roulette table is never safe when she throws her chips down.";
+ 				var result = "You are Lorelei!";
+
+				var img = document.createElement("img");
+				img.src = "lorelei.jpg";
+				img.style.width = "200px";
+				img.style.border = "5px solid white";
+
+				var src = document.getElementById("result_image");
+				src.appendChild(img);
+
+ 				document.getElementById("question_num").innerHTML = "";
+ 				document.getElementById("question").innerHTML = result + "<br>";
+ 				document.getElementById("choices").innerHTML = "";
+ 				document.getElementById("result_text").innerHTML = lorelei_text;
+ 			}
+
+ 		</script>
+	</body>
+</html>
